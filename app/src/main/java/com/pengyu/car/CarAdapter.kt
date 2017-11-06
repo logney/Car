@@ -100,11 +100,14 @@ class CarAdapter(private val data: ArrayList<MultiItemEntity>, private val selec
                 number_button.setBuyMax(10)
                         .setInventory(1000)
                         .setCurrentNumber(goods.goodscoun)
-                number_button.setOnChangeListener {
-                    goods.goodscoun = number_button.number
-                    goods_count.text = "x${goods.goodscoun}"
-                    selectChangeListener.goodsChangeS(getCheckItem(), isCheckAllSJs())
-                }
+                number_button.setOnChangeListener(object :MyNumberButton.ChangeListener{
+                    override fun change() {
+                        goods.goodscoun = number_button.number
+                        goods_count.text = "x${goods.goodscoun}"
+                        selectChangeListener.goodsChangeS(getCheckItem(), isCheckAllSJs())
+                    }
+
+                })
             }
         }
     }
