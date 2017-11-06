@@ -1,5 +1,5 @@
 # Car
-# 购物车功能截图
+电商平台App购物车模块功能，能满足大部分的购物车功能，全选、反选、多选、商品价格计算，删除等共能
 # 购购物车界面
 # ![image](https://github.com/pengyu110/Car/blob/master/image/1.png)
 # 全选
