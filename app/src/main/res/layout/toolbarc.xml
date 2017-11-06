@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="@drawable/shape"
+    app:contentInsetStart="0dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:titleTextColor="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/bar_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/back_icon"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@mipmap/back" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@+id/bar_back"
+            android:background="@color/_88FFFFFF" />
+
+        <TextView
+            android:id="@+id/bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="标 题"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/goods_gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            android:textColor="@drawable/custom_text_state_color1"
+            app:kswTextOff="管理"
+            app:kswTextOn="完成"
+            app:kswBackDrawable="@drawable/kswback"
+            app:kswThumbDrawable="@drawable/thumb_drawable1" />
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

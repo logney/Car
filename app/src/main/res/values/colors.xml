@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fd3131</color>
+    <color name="colorPrimaryDark">#fd3131</color>
+    <color name="colorAccent">#fd3131</color>
+
+    <color name="shape1">#fd3131</color>
+    <color name="shape2">#fd6353</color>
+    <color name="shape3">#fd7474</color>
+
+    <color name="_00000000">#00000000</color>
+    <color name="_AAAAAA">#AAAAAA</color>
+    <color name="_777777">#777777</color>
+    <color name="_555555">#555555</color>
+    <color name="_33000000">#33000000</color>
+    <color name="_11000000">#11000000</color>
+    <color name="_222222">#222222</color>
+    <color name="_111111">#111111</color>
+    <color name="_000000">#000000</color>
+    <color name="_FFFFFF">#FFFFFF</color>
+    <color name="_EEEEEE">#EEEEEE</color>
+    <color name="_88FFFFFF">#88FFFFFF</color>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/check_goods"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/checkbox_state"
+            android:buttonTint="#fd3131"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:id="@+id/sj_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="商家名称"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <com.kyleduo.switchbutton.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:checked="false"
+            android:textColor="@drawable/custom_text_state_color"
+            app:kswTextOff="编辑"
+            app:kswTextOn="完成"
+            app:kswThumbColor="#FFFFFF"
+            app:kswThumbDrawable="@drawable/thumb_drawable"
+            app:kswTintColor="#fd3131" />
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@mipmap/arrow_right_red" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginTop="2dp"
+        android:background="#F6F6F6" />
+</LinearLayout>
