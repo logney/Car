@@ -1,6 +1,10 @@
 # Car
 # 购物车功能截图
+# 购购物车界面
 # ![image](https://github.com/pengyu110/Car/blob/master/image/1.png)
+# 全选
 # ![image](https://github.com/pengyu110/Car/blob/master/image/2.png)
+# 管理
 # ![image](https://github.com/pengyu110/Car/blob/master/image/3.png)
+# 编辑
 # ![image](https://github.com/pengyu110/Car/blob/master/image/4.png)
