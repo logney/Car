@@ -29,7 +29,7 @@ class MainActivity : BaseActivity() {
         goods_xprice = findViewById(R.id.goods_xprice) as TextView
         car_recy.layoutManager = LinearLayoutManager(this)
         createSJ = CreateData.createSJ()
-        bar_title.text = "购 物 车"
+        bar_title.text = resources.getString(R.string.gwc)
 
         carAdapter = CarAdapter(createSJ!!, object : SelectChangeListener {
             override fun goodsChangeS(checkItem: ArrayList<CarEntity.Goods>, checkAllSJs: Boolean) {
