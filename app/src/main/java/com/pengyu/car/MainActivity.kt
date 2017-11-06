@@ -9,6 +9,10 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbarc.*
 
+/**
+ * Created by PengYu on 2017/10/18.
+ */
+
 class MainActivity : BaseActivity() {
 
     private var carAdapter: CarAdapter? = null
@@ -34,6 +38,7 @@ class MainActivity : BaseActivity() {
         carAdapter = CarAdapter(createSJ!!, object : SelectChangeListener {
             override fun goodsChangeS(checkItem: ArrayList<CarEntity.Goods>, checkAllSJs: Boolean) {
                 check_goods_all.isChecked = checkAllSJs
+                //如果是删除商品状态这不需要计算操作
                 if (isDel) {
                     delCheckItems = checkItem
                     fkmd.setCenterString("删除(${delCheckItems!!.size})")
@@ -50,12 +55,18 @@ class MainActivity : BaseActivity() {
 
         })
         car_recy.adapter = carAdapter
+
+        //展开商家下面的Item
         carAdapter!!.expandAll()
+
+        //全选或反选监听
         check_goods_all.setOnCheckedChangeListener { compoundButton, isChecked ->
             compoundButton.setOnClickListener {
                 carAdapter!!.CheckAll(isChecked)
             }
         }
+
+        //删除或支付
         fkmd.setOnClickListener {
             if (isDel) {
                 carAdapter!!.removeChecked()
@@ -63,6 +74,8 @@ class MainActivity : BaseActivity() {
                 Toast.makeText(context, "共支付：${goods_xprice!!.text}元", Toast.LENGTH_LONG).show()
             }
         }
+
+        //Item点击事件监听
         carAdapter!!.setOnClickListener(object : CarAdapter.ClickItem {
             override fun clickSJItem(position: Int, carEntity: CarEntity) {
                 Toast.makeText(context, "商家：${carEntity.name}", Toast.LENGTH_SHORT).show()
@@ -73,7 +86,9 @@ class MainActivity : BaseActivity() {
             }
 
         })
-        goods_gl.setOnCheckedChangeListener { buttonView, isChecked ->
+
+        //管理商品事件监听
+        goods_gl.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 isDel = true
                 money_root.visibility = View.INVISIBLE

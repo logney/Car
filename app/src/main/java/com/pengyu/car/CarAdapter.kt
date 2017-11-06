@@ -17,16 +17,25 @@ import com.kyleduo.switchbutton.SwitchButton
 
 class CarAdapter(private val data: ArrayList<MultiItemEntity>, private val selectChangeListener: SelectChangeListener) : BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder>(data) {
 
-    private var isDEL = false
+    private var isDEL = false                   //是否为删除状态
+    private var clickItem: ClickItem? = null    //保存被选中的Item
+
+    /**
+     * 定义Item类型
+     */
+    companion object {
+        val TYPE_LEVEL_0 = 0
+        val TYPE_LEVEL_1 = 1
+    }
 
     init {
-        addItemType(TYPE_LEVEL_0, R.layout.item_car_sj)
-        addItemType(TYPE_LEVEL_1, R.layout.item_car_goods)
+        addItemType(TYPE_LEVEL_0, R.layout.item_car_sj)     //商家布局ID
+        addItemType(TYPE_LEVEL_1, R.layout.item_car_goods)  //商品布局ID
     }
 
     override fun convert(helper: BaseViewHolder, item: MultiItemEntity) {
         when (helper.itemViewType) {
-            TYPE_LEVEL_0 -> {
+            TYPE_LEVEL_0 -> {   //商家Item
                 val carEntity = item as CarEntity
                 helper.setText(R.id.sj_name, carEntity.name)
                 helper.setChecked(R.id.check_goods, carEntity.isChecked)
@@ -54,7 +63,7 @@ class CarAdapter(private val data: ArrayList<MultiItemEntity>, private val selec
                 }
                 switch_button.isChecked = carEntity.isBjchecked
             }
-            TYPE_LEVEL_1 -> {
+            TYPE_LEVEL_1 -> {   //商品Item
                 val goods = item as CarEntity.Goods
                 val goods_img = helper.getView<ImageView>(R.id.goods_img)
                 var goods_count = helper.getView<TextView>(R.id.goods_count)
@@ -297,22 +306,25 @@ class CarAdapter(private val data: ArrayList<MultiItemEntity>, private val selec
         selectChangeListener.goodsChangeS(getCheckItem(), isCheckAllSJs())
     }
 
-    companion object {
-
-        val TYPE_LEVEL_0 = 0
-        val TYPE_LEVEL_1 = 1
-    }
-
+    /**
+     *  item自定义点击事件
+     */
     interface ClickItem {
         fun clickSJItem(position: Int, carEntity: CarEntity)
         fun clickGoodsItem(position: Int, goods: CarEntity.Goods)
     }
 
-    private var clickItem: ClickItem? = null
+
+    /**
+     *  设置点击事件
+     */
     fun setOnClickListener(clickItem: ClickItem) {
         this.clickItem = clickItem
     }
 
+    /**
+     * @del 赋值isDEL 并且更新itm状态 返回选中的Item
+     */
     fun delete(del: Boolean) {
         isDEL = del
         notifyDataSetChanged()
